@@ -306,6 +306,18 @@
       .page-break { page-break-before: always; }
     }
 
+    /* Prevent anchor targets from hiding under sticky nav */
+    main section {
+      scroll-margin-top: 5.5rem; /* mobile default */
+    }
+
+    /* Desktop can use a slightly smaller offset */
+    @media (min-width: 700px) {
+      main section {
+        scroll-margin-top: 4rem;
+      }
+    }
+
     /* ===== Tighten header spacing on small screens ===== */
     @media (max-width: 480px) {
       header {
@@ -324,6 +336,28 @@
       header p {
         margin-top: 0.5rem;
         font-size: 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      header {
+        padding-bottom: 1.25rem;
+      }
+
+      main section:first-of-type {
+        padding-top: 2rem;
+      }
+    }
+
+    /* Landscape phones: reduce logo height */
+    @media (max-width: 900px) and (orientation: landscape) {
+      .site-logo {
+        max-width: 220px;
+        margin-bottom: 0.5rem;
+      }
+
+      header {
+        padding: 1.25rem 1rem;
       }
     }
     
