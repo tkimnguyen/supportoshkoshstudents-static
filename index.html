@@ -1,103 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Support Oshkosh Students</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Community information about public education in the Oshkosh Area School District." />
 
-  <!-- Favicon -->
-  <link rel="icon" href="/assets/sos2016logo30.png" type="image/png" sizes="32x32">
-  <link rel="icon" href="/assets/sos2016logo30.png" type="image/png" sizes="16x16">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/sos2016logo30.png">
+  <!-- Favicon (from provided logo) -->
+  <link rel="icon" href="assets/sos2016logo30.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/sos2016logo30.png" />
 
-  <!-- Social media preview -->
-  <meta property="og:title" content="Support Oshkosh Students">
-  <meta property="og:description" content="Community information about public education in the Oshkosh Area School District.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://YOUR-GITHUB-PAGES-URL-HERE">
-  <meta property="og:image" content="https://YOUR-GITHUB-PAGES-URL-HERE/assets/sos2016logo30.png">
-  <meta property="og:image:alt" content="School-themed logo featuring an apple, books, chalkboard, and school bus">
-  
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Support Oshkosh Students">
-  <meta name="twitter:description" content="Community information about public education in Oshkosh.">
-  <meta name="twitter:image" content="https://YOUR-GITHUB-PAGES-URL-HERE/assets/sos2016logo30.png">
-  
+  <!-- Social media preview (Open Graph / Twitter). IMPORTANT: replace YOUR-GITHUB-PAGES-URL -->
+  <meta property="og:title" content="Support Oshkosh Students" />
+  <meta property="og:description" content="Community information about public education in the Oshkosh Area School District." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR-GITHUB-PAGES-URL-HERE/" />
+  <meta property="og:image" content="https://YOUR-GITHUB-PAGES-URL-HERE/assets/sos2016logo30.png" />
+  <meta property="og:image:alt" content="School-themed logo featuring an apple, books, chalkboard, and school bus" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Support Oshkosh Students" />
+  <meta name="twitter:description" content="Community information about public education in the Oshkosh Area School District." />
+  <meta name="twitter:image" content="https://YOUR-GITHUB-PAGES-URL-HERE/assets/sos2016logo30.png" />
+
   <style>
+    :root {
+      --bg: #f9fafb;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --brand: #1e3a8a;
+      --brand-2: #eef2ff;
+      --navbg: #e5e7eb;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --focus: #f59e0b;
+    }
+
+    * { box-sizing: border-box; }
+
     body {
-      font-family: system-ui, Arial, sans-serif;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       margin: 0;
       line-height: 1.6;
-      color: #1f2937;
-      background: #f9fafb;
+      color: var(--text);
+      background: var(--bg);
     }
 
-    a {
-      color: #1e3a8a;
-    }
+    a { color: var(--brand); }
 
-    a:focus,
-    button:focus {
-      outline: 3px solid #f59e0b;
+    /* Visible focus for keyboard users */
+    a:focus, button:focus {
+      outline: 3px solid var(--focus);
       outline-offset: 2px;
     }
 
+    /* Skip link */
     .skip-link {
       position: absolute;
-      top: -40px;
+      top: -44px;
       left: 0;
-      background: #1e3a8a;
-      color: #ffffff;
-      padding: 8px 12px;
-      z-index: 100;
+      padding: 10px 12px;
+      background: var(--brand);
+      color: #fff;
+      z-index: 999;
       text-decoration: none;
+      border-bottom-right-radius: 6px;
     }
-
-    .skip-link:focus {
-      top: 0;
-    }
+    .skip-link:focus { top: 0; }
 
     header {
-      background: #1e3a8a;
-      color: #ffffff;
+      background: var(--brand);
+      color: #fff;
       padding: 2.5rem 1rem;
       text-align: center;
     }
 
-    nav {
+    .site-logo {
+      max-width: 340px;
+      height: auto;
+      display: block;
+      margin: 0 auto 1.25rem auto;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    header p {
+      margin: 0.75rem 0 0 0;
+      font-size: 1.1rem;
+    }
+
+    /* ===== Accessible collapsible nav (mobile-first) ===== */
+    .site-nav {
       position: sticky;
       top: 0;
-      background: #e5e7eb;
+      background: var(--navbg);
       padding: 0.75rem;
-      text-align: center;
       z-index: 10;
+      border-bottom: 1px solid #d1d5db;
     }
 
-    nav a {
-      margin: 0 0.75rem;
-      font-weight: 600;
-      text-decoration: none;
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
+
+    /* Toggle button */
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--brand);
+      padding: 0.5rem 0.75rem;
+      border-radius: 10px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .menu-icon { flex: 0 0 auto; }
+
+    .menu-label { display: inline-block; }
+
+    /* Collapsible panel */
+    .nav-panel {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: max-height 180ms ease, opacity 180ms ease, transform 180ms ease;
+      width: 100%;
+    }
+
+    .nav-panel.is-open {
+      max-height: 420px; /* enough space for links */
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav-list {
+      list-style: none;
+      padding: 0.75rem 0 0 0;
+      margin: 0;
+    }
+
+    .nav-list li {
+      margin: 0.4rem 0;
+    }
+
+    .nav-list a {
+      display: inline-block;
+      padding: 0.35rem 0.25rem;
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    .nav-list a:hover { text-decoration: underline; }
 
     main {
-      max-width: 850px;
-      margin: auto;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem;
     }
 
     section {
-      padding: 3rem 1rem;
+      padding: 3rem 0;
     }
 
     h2 {
-      color: #1e3a8a;
+      color: var(--brand);
+      margin-top: 0;
+      margin-bottom: 1rem;
     }
 
+    h3 { margin-top: 2rem; }
+
     .callout {
-      background: #eef2ff;
-      padding: 1.5rem;
-      border-left: 4px solid #1e3a8a;
-      margin-top: 2rem;
+      background: var(--brand-2);
+      padding: 1.25rem 1.25rem;
+      border-left: 4px solid var(--brand);
+      margin-top: 1.5rem;
+      border-radius: 6px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
     }
 
     footer {
@@ -105,133 +202,97 @@
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.95rem;
-      color: #6b7280;
+      color: var(--muted);
+      border-top: 1px solid #e5e7eb;
     }
 
-    .contact-box {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      padding: 1.5rem;
-      border-radius: 6px;
-      margin-top: 1.5rem;
-    }
-
-    /* Collapsible nav styles */
-    nav details {
-      max-width: 850px;
-      margin: auto;
-    }
-    
-    nav summary {
-      list-style: none;
-      cursor: pointer;
-      font-weight: 700;
-      padding: 0.5rem;
-      display: inline-block;
-    }
-    
-    nav summary::-webkit-details-marker {
-      display: none;
-    }
-    
-    nav details[open] summary {
-      margin-bottom: 0.5rem;
-    }
-    
-    nav ul {
-      padding-left: 1rem;
-      list-style: none;
-    }
-    
-    nav li {
-      margin: 0.5rem 0;
-    }
-    
-    /* Desktop view: show menu always */
+    /* Desktop: show links inline; hide toggle */
     @media (min-width: 700px) {
-      nav details {
-        display: flex;
-        justify-content: center;
+      .menu-toggle { display: none; }
+
+      .nav-panel {
+        max-height: none;
+        opacity: 1;
+        transform: none;
+        transition: none;
       }
-    
-      nav summary {
-        display: none;
-      }
-    
-      nav ul {
+
+      .nav-list {
         display: flex;
         gap: 1.25rem;
         padding: 0;
+        align-items: center;
       }
-    
-      nav li {
-        margin: 0;
+
+      .nav-list li { margin: 0; }
+
+      .nav-inner {
+        justify-content: center;
       }
     }
 
-    /* =========================
-       PRINT STYLES
-       ========================= */
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .nav-panel { transition: none; transform: none; }
+    }
+
+    /* ===== Print styles for meetings / handouts ===== */
     @media print {
-    
-      /* Hide non-content UI */
-      nav,
+      .site-nav,
       .skip-link {
         display: none !important;
       }
-    
+
       header {
         background: none !important;
         color: #000 !important;
         padding: 0 0 1rem 0;
         text-align: left;
       }
-    
+
       body {
         background: #ffffff !important;
         color: #000000 !important;
         font-size: 12pt;
         line-height: 1.45;
       }
-    
+
       main {
         max-width: 100%;
         margin: 0;
       }
-    
+
       section {
         page-break-inside: avoid;
         padding: 1.5rem 0;
       }
-    
-      h1 {
-        font-size: 18pt;
-      }
-    
+
+      h1 { font-size: 18pt; }
       h2 {
         font-size: 15pt;
         margin-top: 2rem;
         page-break-after: avoid;
       }
-    
-      h3 {
-        font-size: 13pt;
-      }
-    
-      /* Make links readable on paper */
-      a[href]::after {
+      h3 { font-size: 13pt; }
+
+      /* Print URLs for links */
+      a:after {
         content: " (" attr(href) ")";
         font-size: 10pt;
         word-break: break-all;
       }
-    
-      /* Remove decorative elements */
+
       .callout {
         border-left: none;
         background: none;
         padding: 0;
       }
-    
+
+      .card {
+        border: 1px solid #999;
+        border-radius: 0;
+      }
+
       footer {
         border-top: 1px solid #999;
         margin-top: 2rem;
@@ -240,133 +301,264 @@
       }
     }
 
-    .site-logo {
-      max-width: 340px;
-      height: auto;
-      margin-bottom: 1.25rem;
+    /* Optional utility: force a new page before a section when printing */
+    @media print {
+      .page-break { page-break-before: always; }
     }
 
+    /* ===== Tighten header spacing on small screens ===== */
+    @media (max-width: 480px) {
+      header {
+        padding: 1.5rem 1rem;
+      }
+    
+      .site-logo {
+        max-width: 260px;
+        margin-bottom: 0.75rem;
+      }
+    
+      header h1 {
+        font-size: 1.75rem;
+      }
+    
+      header p {
+        margin-top: 0.5rem;
+        font-size: 1rem;
+      }
+    }
+    
   </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<a href="#main-content" class="skip-link">Skip to main content</a>
+  <header id="top">
+    <img
+      src="assets/sos2016logo30.png"
+      class="site-logo"
+      alt="School-themed logo featuring an apple, books, chalkboard, and school bus"
+    />
+    <h1>Support Oshkosh Students</h1>
+    <p>Community information about public education in the Oshkosh Area School District</p>
+  </header>
 
-<header>
-  <img
-    src="assets/sos2016logo30.png"
-    alt="Support Oshkosh Students logo showing a stack of books with an apple, a chalkboard, and a school bus"
-    class="site-logo"
-  >
+  <nav aria-label="Primary navigation" class="site-nav">
+    <div class="nav-inner">
+      <button
+        type="button"
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+      >
+        <svg class="menu-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+          <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+        <span class="menu-label">Menu</span>
+      </button>
 
-  <h1>Support Oshkosh Students</h1>
-
-  <p>
-    Community information about public education in the Oshkosh Area School
-    District
-  </p>
-</header>
-
-<nav aria-label="Primary navigation">
-  <details>
-    <summary>Menu</summary>
-    <ul>
-      <li><a href="#purpose">Purpose</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#issues">School Issues</a></li>
-      <li><a href="#get-involved">Get Involved</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </details>
-</nav>
-
-<main id="main-content">
-
-  <section id="purpose">
-    <h2>Our Purpose</h2>
-    <p>
-      Support Oshkosh Students provides educational information about public
-      education in the Oshkosh Area School District, focusing on school funding,
-      facilities planning, and long‑term community impact.
-    </p>
-
-    <div class="callout">
-      <p>
-        Public schools are central to student success, workforce development,
-        and the future health of the Oshkosh community.
-      </p>
+      <div id="primary-nav" class="nav-panel" hidden>
+        <ul class="nav-list">
+          <li><a href="#purpose">Purpose</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#issues">School Issues</a></li>
+          <li><a href="#get-involved">Get Involved</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
-  </section>
+  </nav>
 
-  <section id="about">
-    <h2>About This Group</h2>
-    <p>
-      We are parents, educators, business owners, and community members who want
-      residents to have access to clear, factual information about Oshkosh
-      schools.
-    </p>
-  </section>
-
-  <section id="issues">
-    <h2>Key Issues in Oshkosh Schools</h2>
-
-    <h3>Facilities and Infrastructure</h3>
-    <p>
-      Many district buildings are aging and require safety upgrades and
-      modernization to meet current educational needs.
-    </p>
-
-    <h3>Funding and Costs</h3>
-    <p>
-      State funding limits combined with rising costs affect how school districts
-      plan for maintenance and programs.
-    </p>
-
-    <h3>Long‑Term Planning</h3>
-    <p>
-      Long‑range planning aims to balance responsible use of public resources
-      with student learning environments.
-    </p>
-  </section>
-
-  <section id="get-involved">
-    <h2>Staying Involved</h2>
-    <ul>
-      <li>Attend and observe school board meetings</li>
-      <li>Review official district materials and budgets</li>
-      <li>Volunteer with local education organizations</li>
-      <li>Share verified information with the community</li>
-    </ul>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-
-    <div class="contact-box">
-      <h3>Email</h3>
+  <main id="main-content" tabindex="-1">
+    <section id="purpose">
+      <h2>Our Purpose</h2>
       <p>
-        <strong>Email:</strong>
-        supportoshkoshstudents@email.example
+        Support Oshkosh Students provides educational information about public education in the
+        Oshkosh Area School District, focusing on school funding, facilities planning, and long‑term
+        community impact.
       </p>
 
-      <h3>Online Form (Optional)</h3>
+      <div class="callout">
+        <p>
+          Public schools are central to student success, workforce development, and the future health of
+          the Oshkosh community.
+        </p>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About This Group</h2>
+      <div class="card">
+        <p>
+          We are parents, educators, business owners, and community members who want residents to have access
+          to clear, factual information about Oshkosh schools.
+        </p>
+        <p>
+          This site is intended to be informational and educational. When possible, it should reference official
+          district sources for primary details.
+        </p>
+      </div>
+    </section>
+
+    <section id="issues">
+      <h2>Key Issues in Oshkosh Schools</h2>
+
+      <h3>Facilities and Infrastructure</h3>
       <p>
-        A hosted form service such as Formspree or Google Forms can be linked here
-        to provide an accessible, secure contact option without a backend server.
+        Many district buildings are aging and require safety upgrades and modernization to meet current educational needs.
       </p>
-    </div>
-  </section>
 
-</main>
+      <h3>Funding and Costs</h3>
+      <p>
+        State funding limits combined with rising costs affect how school districts plan for maintenance and programs.
+      </p>
 
-<footer>
-  <p>
-    © Support Oshkosh Students • Educational information site<br>
-    Built using accessible, standards‑based HTML
-  </p>
-</footer>
+      <h3>Long‑Term Planning</h3>
+      <p>
+        Long‑range planning aims to balance responsible use of public resources with student learning environments.
+      </p>
 
+      <!-- Optional print-friendly meeting handout section -->
+      <div class="card">
+        <h3>Meeting / Handout Notes</h3>
+        <p>
+          Use your browser’s Print function to create a clean handout or PDF. The print stylesheet removes navigation,
+          increases readability, and prints link URLs.
+        </p>
+      </div>
+    </section>
+
+    <section id="get-involved">
+      <h2>Staying Involved</h2>
+      <div class="card">
+        <ul>
+          <li>Attend and observe school board meetings</li>
+          <li>Review official district materials and budgets</li>
+          <li>Volunteer with local education organizations</li>
+          <li>Share verified information with the community</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <h3>Email</h3>
+        <p><strong>Email:</strong> supportoshkoshstudents@email.example</p>
+
+        <h3>Hosted Contact Form (recommended for static sites)</h3>
+        <p>
+          GitHub Pages does not run server code, so a traditional form handler won’t work by itself.
+          A hosted form service such as Formspree or Google Forms can provide secure submissions without a backend.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      © Support Oshkosh Students • Educational information site<br />
+      Built using accessible, standards-based HTML
+    </p>
+  </footer>
+
+  <script>
+    (() => {
+      const nav = document.querySelector('.site-nav');
+      if (!nav) return;
+
+      const btn = nav.querySelector('.menu-toggle');
+      const panel = nav.querySelector('#primary-nav');
+      const label = nav.querySelector('.menu-label');
+
+      if (!btn || !panel || !label) return;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const desktopMQ = window.matchMedia('(min-width: 700px)');
+
+      let isOpen = false;
+
+      function setLabel() {
+        // Helpful for sighted users; aria-expanded covers screen readers
+        label.textContent = isOpen ? 'Close' : 'Menu';
+      }
+
+      function openMenu() {
+        isOpen = true;
+        btn.setAttribute('aria-expanded', 'true');
+        setLabel();
+
+        panel.hidden = false;
+        requestAnimationFrame(() => panel.classList.add('is-open'));
+      }
+
+      function closeMenu({ returnFocus = false } = {}) {
+        isOpen = false;
+        btn.setAttribute('aria-expanded', 'false');
+        setLabel();
+
+        if (prefersReduced.matches) {
+          panel.classList.remove('is-open');
+          panel.hidden = true;
+          if (returnFocus) btn.focus();
+          return;
+        }
+
+        panel.classList.remove('is-open');
+        const onDone = (e) => {
+          if (e.target !== panel) return;
+          panel.hidden = true;
+          panel.removeEventListener('transitionend', onDone);
+          if (returnFocus) btn.focus();
+        };
+        panel.addEventListener('transitionend', onDone);
+      }
+
+      function syncForViewport() {
+        if (desktopMQ.matches) {
+          // Desktop: always visible, no toggle
+          panel.hidden = false;
+          panel.classList.remove('is-open');
+          isOpen = true;
+          btn.setAttribute('aria-expanded', 'true');
+          label.textContent = 'Menu';
+        } else {
+          // Mobile: collapsed by default
+          panel.classList.remove('is-open');
+          panel.hidden = true;
+          isOpen = false;
+          btn.setAttribute('aria-expanded', 'false');
+          setLabel();
+        }
+      }
+
+      // Toggle on button
+      btn.addEventListener('click', () => {
+        if (desktopMQ.matches) return;
+        isOpen ? closeMenu() : openMenu();
+      });
+
+      // ESC closes when focus is in nav
+      nav.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !desktopMQ.matches && isOpen) {
+          e.preventDefault();
+          closeMenu({ returnFocus: true });
+        }
+      });
+
+      // Auto-close after activating a link (mouse or keyboard)
+      panel.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+        if (!desktopMQ.matches && isOpen) closeMenu();
+      });
+
+      // Keep correct state when resizing
+      desktopMQ.addEventListener?.('change', syncForViewport);
+
+      // Initialize
+      syncForViewport();
+    })();
+  </script>
 </body>
 </html>
-
